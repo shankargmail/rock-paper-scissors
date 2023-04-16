@@ -28,6 +28,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Update dependency graph
-      run: echo "Hello World."
+    # Optional: this to get list of files and target diretctory 
+    - name: list files from the current dir
+      run: ls -la
+      
+    - name: get files from the target dir
+      run: |
+        cd target
+        ls -la
