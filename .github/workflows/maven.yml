@@ -27,6 +27,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+   
+    - name: Cache for Maven
+      uses: actions/cache@v2.1.8
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
 
     # Optional: this to get list of files and target diretctory 
     - name: list files from the current dir
