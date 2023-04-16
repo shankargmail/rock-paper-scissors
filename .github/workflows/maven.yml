@@ -49,6 +49,13 @@ jobs:
       with: 
         name: Artifacts to download
         path: staging
+    - name: Create Image and Push to docker hub
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: docker-hub-repo/image-name
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
         
     
     
