@@ -40,14 +40,15 @@ jobs:
     - name: list files from the current dir
       run: ls -la
       
-    - name: list files from the target dir
+    - name: list files from the target dir and artifacts
       run: |
-        cd target
-        ls -la
+       mkdir staging && cp target/*.jar staging        
         
-    - name: Download artifacts
-      run: |
-        mkdir staging && cp target/*.jar staging
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifacts@3.1.2
+      with: 
+        name: Artifacts to download
+        path: staging
         
     
     
