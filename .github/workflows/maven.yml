@@ -40,7 +40,16 @@ jobs:
     - name: list files from the current dir
       run: ls -la
       
-    - name: get files from the target dir
+    - name: list files from the target dir
       run: |
         cd target
         ls -la
+        
+    - name: Download artifacts
+      run: |
+        mkdir staging && cp target/*.jar staging
+        
+    
+    
+    
+    
